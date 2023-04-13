@@ -5,7 +5,14 @@
   </header>
 
 
-  <section class="main">
+  <section class="main row">
+    <ng-container *ngFor="let i of soundList">
+      <div class="sound col-2">
+        <i class="fa fa-umbrella" aria-hidden="true" (click)="play()"></i>
+        <button (click)="increaseVolume()">+VE</button>
+        <button (click)="decreaseVolume()">-VE</button>
+      </div>
+    </ng-container>
   </section>
 
   <footer>
