@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Howl, Howler } from 'howler';
+import { Howl } from 'howler';
 
 @Component({
   selector: 'app-root',
@@ -8,29 +8,34 @@ import { Howl, Howler } from 'howler';
 })
 export class AppComponent {
   title = 'noise';
-  public soundList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  sound = new Howl({
-    src: ['assets/music/rain.mp3']
-  });
-  private volume = 0;
-  private playSound = false;
+  public soundList = [{
+    name: 'Fire',
+    sound: this.getMusicObject('fire.mp3'),
+    icon: 'fa fa-fire',
+    playing: false
+  },
+  {
+    name: 'Raining',
+    sound: this.getMusicObject('rain.mp3'),
+    icon: 'fa fa-umbrella',
+    playing: false
+  }
+  ]
 
   constructor() {
-
   }
 
-  play() {
-    this.playSound = !this.playSound;
-    this.playSound ? this.sound.play() : this.sound.stop();
-  
+  getMusicObject(name: any) {
+    return new Howl({ src: ['assets/music/' + name] })
   }
 
-
-  increaseVolume(){
-    this.sound.volume(this.volume=this.volume+ 0.1);
+  play(index: any) {
+    (!this.soundList[index].playing) ? this.soundList[index].sound.play() : this.soundList[index].sound.stop();
+    this.soundList[index].playing = !this.soundList[index].playing;
   }
 
-  decreaseVolume(){
-    this.sound.volume(this.volume=this.volume-0.1);
+  increaseVolume(index: any, event: any) {
+    this.soundList[index].sound.volume(event.value);
   }
+
 }

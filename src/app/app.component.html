@@ -6,11 +6,19 @@
 
 
   <section class="main row">
-    <ng-container *ngFor="let i of soundList">
+    <ng-container *ngFor="let i of soundList;let music=index">
       <div class="sound col-2">
-        <i class="fa fa-umbrella" aria-hidden="true" (click)="play()"></i>
-        <button (click)="increaseVolume()">+VE</button>
-        <button (click)="decreaseVolume()">-VE</button>
+        <div class="sound-icon">
+          <i class="{{i.icon}}" aria-hidden="true" (click)="play(music)"></i>
+          <label>{{i.name}}</label>
+        </div>
+        <div class="slider">
+          <i class="fa fa-volume-down" aria-hidden="true"></i>
+          <mat-slider min="0" max="1" step="0.01" (input)="increaseVolume(music,$event)" value="0.6">
+            <input matSliderThumb>
+          </mat-slider>
+          <i class="fa fa-volume-up" aria-hidden="true"></i>
+        </div>
       </div>
     </ng-container>
   </section>
