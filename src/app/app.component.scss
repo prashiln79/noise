@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+.dashboard {
+    width: 100%;
+    height: 100%;
+    animation-duration: 12s;
+    animation-name: color-change;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: ease-in;
+}
+
+@keyframes color-change {
+    0% {
+        background-color: #6a737b;
+    }
+
+    // 5% {
+    //     background-color: #ff0000;
+    // }
+
+    16% {
+        background-color: #fbb034;
+    }
+
+    33% {
+        background-color: #ffdd00;
+    }
+
+    50% {
+        background-color: #c1d82f;
+    }
+
+    66% {
+        background-color: #00a4e4;
+    }
+
+    83% {
+        background-color: #8a7967;
+    }
+
+    100% {
+        background-color: #6a737b;
+    }
+}
+
+.logo {
+    margin-left: 10px;
+}
+
+
+footer{
+    position: absolute;
+    bottom: 20px;
+    left: 47vw;
+    color: rgba(255, 255, 255, 0.541);
+    
+}
