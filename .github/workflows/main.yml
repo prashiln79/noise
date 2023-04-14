@@ -22,7 +22,7 @@ jobs:
       - name: "Create env file"
         run: |
           touch .env
-          echo GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          echo GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}  >> .env
           echo AUTH_DOMAIN: ${{ secrets.AUTH_DOMAIN }}
           echo DATA_BASE_URL: ${{ secrets.DATA_BASE_URL }}
           echo PROJECT_ID: ${{ secrets.PROJECT_ID }}
