@@ -12,20 +12,7 @@ import { FileUploadService } from './util/services/file-upload.service';
 })
 export class AppComponent {
   title = 'noise';
-  public soundList: any = [
-    //   {
-    //   name: 'Fire',
-    //   sound: this.getMusicObject('fire.mp3'),
-    //   icon: 'fa fa-fire',
-    //   playing: false
-    // },
-    // {
-    //   name: 'Raining',
-    //   sound: this.getMusicObject('rain.mp3'),
-    //   icon: 'fa fa-umbrella',
-    //   playing: false
-    // }
-  ]
+  public soundList: any = [];
 
   constructor(public dialog: MatDialog, private db: AngularFireDatabase, private fileUploadService: FileUploadService) {
     this.getAllMusicList();
@@ -44,7 +31,7 @@ export class AppComponent {
     this.soundList[index].playing = !this.soundList[index].playing;
   }
 
-  increaseVolume(index: any, event: any) {
+  ctrlVolume(index: any, event: any) {
     this.soundList[index].sound.volume(event.value);
   }
 
