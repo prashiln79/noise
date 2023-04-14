@@ -32,7 +32,7 @@ jobs:
           MEASUREMENT_ID: ${{ secrets.MEASUREMENT_ID }}
 
       - name: Print name
-        run: echo "Hello ${{ env.GOOGLE_API_KEY.GOOGLE_API_KEY }}"
+        run: echo "Hello ${{ env.GOOGLE_API_KEY }}"
 
       - name: Build
         run: npm run build
