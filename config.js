@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const setEnv = () => {
   const fs = require('fs');
-  const writeFile = fs.writeFile;
+  const appendFile = fs.appendFile;
 
   // Configure Angular `environment.ts` file path
   const targetPath = './src/environments/environment.ts';
@@ -25,7 +25,6 @@ const setEnv = () => {
 };
 `;
 
-  console.log(envConfigFile);
   appendFile(targetPath, envConfigFile, (err) => {
     if (err) {
       console.error(err);
