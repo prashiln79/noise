@@ -1,8 +1,7 @@
-
 name: CI / CD for Angular
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
   build-and-deploy:
@@ -14,13 +13,13 @@ jobs:
       - name: Set up node.js
         uses: actions/setup-node@v3.3.0
         with:
-          node-version: '16'
-          cache: 'npm'
+          node-version: "16"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
-      - name: 'Create env file'
+      - name: "Create env file"
         run: |
           touch .env
           echo GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
@@ -32,7 +31,6 @@ jobs:
           echo APP_ID: ${{ secrets.APP_ID }}
           echo MEASUREMENT_ID: ${{ secrets.MEASUREMENT_ID }}
           cat .env
-          
 
       - name: Print name
         run: echo "Hello ${{ secrets.GOOGLE_API_KEY }}"
