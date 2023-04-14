@@ -7,8 +7,8 @@
 
   <section class="main row">
     <ng-container *ngFor="let i of soundList;let music=index">
-      <div class="sound col-2" [ngClass]="{'playing':i.playing}">
-        <div class="sound-icon" (click)="play(music)">
+      <div class="sound col-2" (click)="play(music)" [ngClass]="{'playing':i.playing}">
+        <div class="sound-icon">
           <i class="{{i.icon}}" aria-hidden="true"></i>
           <label>{{i.name}}</label>
         </div>
