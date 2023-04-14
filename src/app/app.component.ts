@@ -4,6 +4,7 @@ import { Howl } from 'howler';
 import { UploadComponent } from './components/upload/upload.component';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FileUploadService } from './util/services/file-upload.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,7 @@ export class AppComponent {
 
   constructor(public dialog: MatDialog, private db: AngularFireDatabase, private fileUploadService: FileUploadService) {
     this.getAllMusicList();
+    console.log(environment);
   }
 
   getMusicObject(id: any, index: any) {
