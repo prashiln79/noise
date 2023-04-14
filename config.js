@@ -26,7 +26,7 @@ const setEnv = () => {
 `;
 
   console.log(envConfigFile);
-  writeFile(targetPath, envConfigFile, (err) => {
+  appendFile(targetPath, envConfigFile, (err) => {
     if (err) {
       console.error(err);
       throw err;
