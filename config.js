@@ -25,7 +25,7 @@ const setEnv = () => {
 };
 `;
 
-  writeFile(targetPath, envConfigFile, (err) => {
+  writeFile(targetPath, envConfigFile, { flag: 'wx' }, (err) => {
     if (err) {
       console.error(err);
       throw err;
