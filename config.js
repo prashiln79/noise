@@ -5,7 +5,7 @@ const setEnv = () => {
   const writeFile = fs.writeFile;
 
   // Configure Angular `environment.ts` file path
-  const targetPath = './src/environments/environment.prod.ts';
+  const targetPath = './src/environments/environment.ts';
   // Load node modules
 
   // `environment.ts` file structure
