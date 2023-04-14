@@ -10,14 +10,14 @@ const setEnv = () => {
 
     production: false,
     firebase: {
-      apiKey: '${process.env.GOOGLE_API_KEY}',
-      authDomain: '${process.env.AUTH_DOMAIN}',
-      databaseURL: '${process.env.DATA_BASE_URL}',
-      projectId: '${process.env.PROJECT_ID}',
-      storageBucket: '${process.env.STORAGE_BUCKET}',
-      messagingSenderId:'${process.env.MESSAGING_SENDER_ID}',
-      appId: '${process.env.APP_ID}',
-      measurementId: '${process.env.MEASUREMENT_ID}',
+      apiKey: '${process.GOOGLE_API_KEY}',
+      authDomain: '${process.AUTH_DOMAIN}',
+      databaseURL: '${process.DATA_BASE_URL}',
+      projectId: '${process.PROJECT_ID}',
+      storageBucket: '${process.STORAGE_BUCKET}',
+      messagingSenderId:'${process.MESSAGING_SENDER_ID}',
+      appId: '${process.APP_ID}',
+      measurementId: '${process.MEASUREMENT_ID}',
     }
 };
 `;
