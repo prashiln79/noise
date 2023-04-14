@@ -1,8 +1,11 @@
 <h1 mat-dialog-title>Upload</h1>
 <div mat-dialog-content style="overflow: hidden;">
+    File<input type="file" (change)="fileSelect($event.target)"><br>
+
     Name<input type="text" [(ngModel)]="name"><br>
-    Icon<input type="text" [(ngModel)]="icon"><br>
-    File<input type="file" (change)="fileSelect($event.target)">
+
+    Icon<br><input type="text" [(ngModel)]="icon">
+    
 
 </div>
 <div mat-dialog-actions>
