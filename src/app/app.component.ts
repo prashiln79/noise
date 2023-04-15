@@ -18,16 +18,27 @@ export class AppComponent {
     this.getAllMusicList();
   }
 
-  getMusicObject(id: any, index: any) {
-    this.fileUploadService.getUploadFileById('music/' + id).subscribe((resp: any) => {
-      this.soundList[index].sound = new Howl({ src: resp, loop: true, html5: true, format: ['mp3', 'aac', 'wav'], volume: 0.6 })
-      return resp;
+  getMusicObject(url: string) {
+    return new Howl({ src: url, loop: true, html5: true, format: ['mp3', 'aac', 'wav'], volume: 0.6 });
+  }
+
+  getMusic(data: any) {
+    this.fileUploadService.getUploadFileById('music/' + data[0]).subscribe((resp: any) => {
+      this.soundList[data[1]].sound = this.getMusicObject(resp);
+      this.soundList[data[1]].sound.play();
     });
-    return id;
   }
 
   play(index: any) {
-    (!this.soundList[index].playing) ? this.soundList[index].sound.play() : this.soundList[index].sound.stop();
+    if (!this.soundList[index].playing) {
+      if (this.soundList[index].sound && this.soundList[index].sound.length == 2) {
+        this.getMusic(this.soundList[index].sound);
+      } else {
+        this.soundList[index].sound.play();
+      }
+    } else {
+      this.soundList[index].sound.stop();
+    }
     this.soundList[index].playing = !this.soundList[index].playing;
   }
 
@@ -48,7 +59,7 @@ export class AppComponent {
       this.soundList = resp.map((i: any, index: any) => {
         return {
           name: i.name,
-          sound: this.getMusicObject(i.fileId, index),
+          sound: [i.fileId, index],
           icon: i.icon,
           playing: false
         }

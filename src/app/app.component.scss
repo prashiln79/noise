@@ -7,6 +7,8 @@
   animation-iteration-count: infinite;
   animation-direction: normal;
   animation-timing-function: ease-in;
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes color-change {
@@ -23,7 +25,7 @@
   }
 
   33% {
-    background-color: #ffdd00;
+    background-color: #dfc624;
   }
 
   50% {
@@ -43,68 +45,6 @@
   }
 }
 
-.logo {
-  margin-left: 12px;
-  color: antiquewhite;
-  font-size: 2.5rem;
-  padding-top: 0.4rem;
-}
-
-footer {
-  display: flex;
-  padding-top: 2rem;
-  justify-content: center;
-
-  a {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.541);
-  }
-}
-
-.sound {
-  width: 10rem;
-  height: 10rem;
-  background-color: #fbfbfb29;
-  margin: 1rem;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
-
-  .sound-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    cursor: pointer;
-
-    label {
-      margin-top: 5px;
-      font-weight: 500;
-      color: #00000099;
-    }
-  }
-
-  i {
-    font-size: 40px;
-    cursor: pointer;
-    height: fit-content;
-    margin-top: 1rem;
-  }
-
-  .slider {
-    display: flex;
-
-    i {
-      font-size: 1rem;
-      height: fit-content;
-      margin-top: 1rem;
-      color: antiquewhite;
-    }
-  }
-}
-
 .playing {
   background-color: rgb(52 23 23 / 38%) !important;
   .sound-icon i,
@@ -114,12 +54,12 @@ footer {
 }
 
 .main {
-  margin: 0 2rem;
-  margin-top: 4rem;
-  justify-content: space-between;
-  height: 80vh;
+  margin: 0 1rem 0 2rem;
+  height: 84%;
+  justify-content: flex-start;
 }
 
 .mat-slider-horizontal {
   min-width: 120px !important;
 }
+

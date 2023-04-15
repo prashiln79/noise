@@ -16,6 +16,52 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.sound {
+  width: 10rem;
+  height: 10rem;
+  background-color: #fbfbfb29;
+  margin: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+
+  .sound-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+
+    label {
+      margin-top: 5px;
+      font-weight: 500;
+      color: #00000099;
+      font-family: system-ui;
+    }
+  }
+
+  i {
+    font-size: 40px;
+    cursor: pointer;
+    height: fit-content;
+    margin-top: 1rem;
+  }
+
+  .slider {
+    display: flex;
+
+    i {
+      font-size: 1rem;
+      height: fit-content;
+      margin-top: 1rem;
+      color: antiquewhite;
+    }
+  }
+}
+
+
 ///////For Mobile
 ///
 
