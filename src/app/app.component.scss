@@ -62,10 +62,25 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    
+
     div {
       margin-top: 0.6rem;
       justify-content: center;
+
+      .controls {
+        position: absolute;
+        display: flex;
+        margin-top: 17rem;
+        background-color: #4a454552;
+        padding: 10px;
+        border-radius: 8px;
+        i {
+          font-size: 2rem;
+          margin: 0 0.9rem;
+          color: #ffffffa1;
+          cursor: pointer;
+        }
+      }
     }
   }
 }

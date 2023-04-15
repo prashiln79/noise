@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'noise';
   public soundList: any = [];
 
-  constructor( private db: AngularFireDatabase, private fileUploadService: FileUploadService) {
+  constructor(private db: AngularFireDatabase, private fileUploadService: FileUploadService) {
     this.getAllMusicList();
   }
 
@@ -46,7 +46,9 @@ export class AppComponent {
 
 
   getAllMusicList() {
-    this.db.list('music').valueChanges().subscribe((resp: any) => {
+    this.db.list('music', ref => {
+      return ref.limitToLast(8)
+    }).valueChanges().subscribe((resp: any) => {
       this.soundList = resp.map((i: any, index: any) => {
         return {
           name: i.name,
@@ -56,6 +58,13 @@ export class AppComponent {
         }
       });
     });
+  }
+
+  playAll(){
+
+  }
+
+  stopAll(){
   }
 
 }
