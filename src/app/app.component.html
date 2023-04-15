@@ -2,10 +2,10 @@
   <app-header></app-header>
 
   <section class="main row">
-    <div class="col-xs-12 col-md-11">
-      <div class="row">
+    <div class="col-xs-12 col-lg-11 row">
+      <div class="col-xs-12 row">
         <ng-container *ngFor="let i of soundList;let music=index">
-          <div class="sound" [ngClass]="{'playing':i.playing}">
+          <div class="sound col-xs" [ngClass]="{'playing':i.playing}">
             <div class="sound-icon" (click)="play(music)">
               <i class="{{i.icon}}" aria-hidden="true"></i>
               <label>{{i.name}}</label>
@@ -19,15 +19,16 @@
             </div>
           </div>
         </ng-container>
-        <div class="controls">
-          <i class="fa fa-play-circle" aria-hidden="true"></i>
-          <i class="fa fa-stop-circle" aria-hidden="true"></i>
-        </div>
+
       </div>
-      
+      <div class="row controls">
+        <i class="fa fa-play-circle" aria-hidden="true"></i>
+        <i class="fa fa-stop-circle" aria-hidden="true"></i>
+      </div>
+
     </div>
 
-    <app-sidebar class="col-xs-12 col-md-1"></app-sidebar>
+    <app-sidebar class="col-xs-12 col-lg-1"></app-sidebar>
 
 
   </section>
