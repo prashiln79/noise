@@ -57,9 +57,15 @@
   margin: 0 1rem 0 2rem;
   height: 84%;
   justify-content: flex-start;
+
+  div {
+    div {
+      margin-top: 0.6rem;
+      justify-content: center;
+    }
+  }
 }
 
 .mat-slider-horizontal {
   min-width: 120px !important;
 }
-

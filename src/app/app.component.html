@@ -2,13 +2,13 @@
   <app-header></app-header>
 
   <section class="main row">
-    <div class="col-xs-12 col-md-10">
+    <div class="col-xs-12 col-md-11">
       <div class="row">
         <ng-container *ngFor="let i of soundList;let music=index">
           <div class="sound" [ngClass]="{'playing':i.playing}">
-            <div class="sound-icon" (click)="play(music)">
+            <div class="sound-icon" (click)="i.name == '+Add+'?openDialog('0ms', '0ms') :play(music)">
               <i class="{{i.icon}}" aria-hidden="true"></i>
-              <label>{{i.name}}</label>
+              <label>{{i.name == '+Add+'? 'Add Sound' : i.name}}</label>
             </div>
             <div class="slider">
               <i class="fa fa-volume-down" aria-hidden="true"></i>
@@ -22,18 +22,7 @@
       </div>
     </div>
 
-
-    <!-- <div class="sound col-2" (click)="openDialog('0ms', '0ms')">
-      <div class="sound-icon">
-        <i class="fa fa-upload" aria-hidden="true"></i>
-        <label>Upload</label>
-      </div>
-      <div class="slider">
-
-      </div>
-    </div> -->
-
-    <app-sidebar class="col-xs-12 col-md-2"></app-sidebar>
+    <app-sidebar class="col-xs-12 col-md-1"></app-sidebar>
 
 
   </section>

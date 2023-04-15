@@ -63,7 +63,12 @@ export class AppComponent {
           icon: i.icon,
           playing: false
         }
-
+      });
+      this.soundList.push({
+        name: '+Add+',
+        sound: [],
+        icon: 'fa fa-plus',
+        playing: false
       })
     });
   }
