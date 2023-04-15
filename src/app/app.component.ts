@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Howl } from 'howler';
+import { Howl, Howler } from 'howler';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FileUploadService } from './util/services/file-upload.service';
 
@@ -11,6 +11,10 @@ import { FileUploadService } from './util/services/file-upload.service';
 export class AppComponent {
   title = 'noise';
   public soundList: any = [];
+  public setOfSoundList: any = [];
+  private pageNumber: any = 0;
+  private pageSize: any = 8;
+  public nightON: boolean = false;
 
   constructor(private db: AngularFireDatabase, private fileUploadService: FileUploadService) {
     this.getAllMusicList();
@@ -46,10 +50,8 @@ export class AppComponent {
 
 
   getAllMusicList() {
-    this.db.list('music', ref => {
-      return ref.limitToLast(8)
-    }).valueChanges().subscribe((resp: any) => {
-      this.soundList = resp.map((i: any, index: any) => {
+    this.db.list('music').valueChanges().subscribe((resp: any) => {
+      let data = resp.map((i: any, index: any) => {
         return {
           name: i.name,
           sound: [i.fileId, index],
@@ -57,14 +59,38 @@ export class AppComponent {
           playing: false
         }
       });
+
+      this.setOfSoundList = this.chunks(data, this.pageSize);
+      this.soundList = this.setOfSoundList[this.pageNumber];
+      this.pageNumber = 0;
     });
   }
 
-  playAll(){
-
+  changeMusicList(flag: any) {
+    let count = flag ? this.pageNumber + 1 : this.pageNumber - 1;
+    if (count < this.setOfSoundList.length && count >= 0) {
+      this.pageNumber = count;
+      this.soundList = this.setOfSoundList[this.pageNumber];
+    }
   }
 
-  stopAll(){
+
+  mute(flag:boolean) {
+    Howler.mute(flag);
   }
+
+
+  chunks(arr: any, n: any) {
+    let setOfArray = [];
+    for (let i = 0; i < arr.length; i += n) {
+      setOfArray.push(arr.slice(i, i + n));
+    }
+    return setOfArray;
+  }
+
+  turnOnNight(){
+    this.nightON = !this.nightON;
+  }
+
 
 }
