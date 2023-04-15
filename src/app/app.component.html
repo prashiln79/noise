@@ -7,21 +7,23 @@
 
   <section class="main row">
     <ng-container *ngFor="let i of soundList;let music=index">
-      <div class="sound col-2" (click)="play(music)" [ngClass]="{'playing':i.playing}">
-        <div class="sound-icon">
+      <div class="sound col-2" [ngClass]="{'playing':i.playing}">
+        <div class="sound-icon" (click)="play(music)">
           <i class="{{i.icon}}" aria-hidden="true"></i>
           <label>{{i.name}}</label>
         </div>
         <div class="slider">
           <i class="fa fa-volume-down" aria-hidden="true"></i>
-          <mat-slider min="0" max="1" step="0.001" (input)="ctrlVolume(music,$event)" value="0.6">
+          <mat-slider min="-0.10" max="1.0" step="0.01" (input)="ctrlVolume(music,$event)" value="0.6">
             <input matSliderThumb>
           </mat-slider>
           <i class="fa fa-volume-up" aria-hidden="true"></i>
         </div>
       </div>
     </ng-container>
-    <div class="sound col-2" (click)="openDialog('0ms', '0ms')">
+
+
+    <!-- <div class="sound col-2" (click)="openDialog('0ms', '0ms')">
       <div class="sound-icon">
         <i class="fa fa-upload" aria-hidden="true"></i>
         <label>Upload</label>
@@ -29,7 +31,9 @@
       <div class="slider">
 
       </div>
-    </div>
+    </div> -->
+
+    
   </section>
 
   <footer>
