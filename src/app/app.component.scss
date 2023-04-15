@@ -56,35 +56,34 @@
 .main {
   margin: 0 1rem 0 2rem;
   height: 84%;
-  justify-content: flex-start;
+  justify-content: center;
 
   div {
     align-items: center;
     display: flex;
     justify-content: center;
+    align-content: center;
 
     div {
       margin-top: 0.6rem;
       justify-content: center;
+    }
 
-      .controls {
-        position: absolute;
-        display: flex;
-        margin-top: 17rem;
-        background-color: #4a454552;
-        padding: 10px;
-        border-radius: 8px;
-        i {
-          font-size: 2rem;
-          margin: 0 0.9rem;
-          color: #ffffffa1;
-          cursor: pointer;
-        }
+    .controls {
+      background-color: rgb(74 69 69 / 18%);
+      padding: 10px;
+      border-radius: 8px;
+      i {
+        font-size: 2rem;
+        margin: 0 0.9rem;
+        color: #ffffffa1;
+        cursor: pointer;
       }
     }
   }
 }
 
 .mat-slider-horizontal {
+  height: 30px !important;
   min-width: 120px !important;
 }
