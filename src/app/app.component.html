@@ -6,9 +6,9 @@
       <div class="row">
         <ng-container *ngFor="let i of soundList;let music=index">
           <div class="sound" [ngClass]="{'playing':i.playing}">
-            <div class="sound-icon" (click)="i.name == '+Add+'?openDialog('0ms', '0ms') :play(music)">
+            <div class="sound-icon" (click)="play(music)">
               <i class="{{i.icon}}" aria-hidden="true"></i>
-              <label>{{i.name == '+Add+'? 'Add Sound' : i.name}}</label>
+              <label>{{i.name}}</label>
             </div>
             <div class="slider">
               <i class="fa fa-volume-down" aria-hidden="true"></i>

@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Howl } from 'howler';
-import { UploadComponent } from './components/upload/upload.component';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FileUploadService } from './util/services/file-upload.service';
 
@@ -14,7 +12,7 @@ export class AppComponent {
   title = 'noise';
   public soundList: any = [];
 
-  constructor(public dialog: MatDialog, private db: AngularFireDatabase, private fileUploadService: FileUploadService) {
+  constructor( private db: AngularFireDatabase, private fileUploadService: FileUploadService) {
     this.getAllMusicList();
   }
 
@@ -46,13 +44,6 @@ export class AppComponent {
     this.soundList[index].sound.volume(event.value);
   }
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(UploadComponent, {
-      width: '250px',
-      enterAnimationDuration,
-      exitAnimationDuration,
-    });
-  }
 
   getAllMusicList() {
     this.db.list('music').valueChanges().subscribe((resp: any) => {
@@ -64,12 +55,6 @@ export class AppComponent {
           playing: false
         }
       });
-      this.soundList.push({
-        name: '+Add+',
-        sound: [],
-        icon: 'fa fa-plus',
-        playing: false
-      })
     });
   }
 
