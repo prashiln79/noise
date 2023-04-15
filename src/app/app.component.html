@@ -27,7 +27,7 @@
       <div class="row controls">
         <i class="fa fa-chevron-left" (click)="changeMusicList(false)" aria-hidden="true"></i>
         <i class="fa fa-play-circle" aria-hidden="true" (click)="mute(false)"></i>
-        <i class="fa fa-moon-o" aria-hidden="true" (click)="turnOnNight()"></i>
+        <i class="fa fa-moon-o" aria-hidden="true" [style.color]="nightON ? 'darkcyan': 'rgba(255, 255, 255, 0.631372549)'" (click)="turnOnNight()"></i>
         <i class="fa fa-stop-circle" aria-hidden="true" (click)="mute(true)"></i>
         <i class="fa fa-chevron-right" (click)="changeMusicList(true)" aria-hidden="true"></i>
       </div>
