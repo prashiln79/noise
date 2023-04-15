@@ -79,7 +79,17 @@ body {
   //   justify-content: center !important;
   // }
 
-  .dashboard{
+  .dashboard {
     height: auto !important;
+  }
+
+  .sound {
+    width: 6rem !important;
+    height: 8rem !important;
+    margin: 0  !important;
+  }
+
+  .slider{
+    display: none !important;
   }
 }

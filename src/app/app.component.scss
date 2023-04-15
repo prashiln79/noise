@@ -11,6 +11,11 @@
   flex-direction: column;
 }
 
+.dashboard-night {
+  animation-name: none;
+  background-color: black;
+}
+
 @keyframes color-change {
   0% {
     background-color: #6a737b;
@@ -54,8 +59,8 @@
 }
 
 .main {
-  margin: 0 1rem 0 2rem;
-  height: 84%;
+  margin: 0 1rem 0 1rem;
+  height: 100%;
   justify-content: center;
 
   div {
@@ -70,8 +75,9 @@
     }
 
     .controls {
+      margin-top: 2rem;
       background-color: rgb(74 69 69 / 18%);
-      padding: 10px;
+      padding: 4px;
       border-radius: 8px;
       i {
         font-size: 2rem;
